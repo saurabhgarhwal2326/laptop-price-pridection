@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Price Prediction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f0f0f0;
+    padding: 20px;
+   
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+main {
+    padding: 20px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+.description {
+    text-align: center;
+}
+
+.form-container {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+.form-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #3e8e41;
+}
+
+.disclaimer {
+    font-size: 0
+}
+.Prediction{
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+}
+</style>
+<body>
+    <header>
+        <h1>laptop Price Prediction</h1>
+    </header>
+    <main>
+        <section class="description">
+            <h2>Welcome to the laptop  Price Prediction Tool!</h2>
+            <p>This website helps you estimate the value of your used laptop based on various factors.</p>
+        </section>
+        <section class="form-container">
+            <h3>Enter laptop Details</h3>
+<form action="{{url_for('predict')}}" method="post">
+            
+                <label for="BRAND">BRAND:</label>
+                <select name="BRAND_NAME" id="fifth" required="required">
+
+                        <option value="ASUS" >ASUS</option>
+                        <option value="Lenovo">Lenovo</option>
+                        <option value="ACER">ACER</option>
+                        <option value="AVITA">AVITA</option>
+                        <option value="HP">HP</option>
+                        <option value="DELL">DELL</option>
+                        <option value="MSI">MSI</option>
+                        <option value="APPLE">APPLE</option>
+                        
+        </select><br><br>
+                
+                <label for="processor_brand	">PROCESSOR BRAND :</label>
+                <select name="processor_brand" id="fifth" required="required">
+                <option value="1">intel</option>
+                <option value="2"> AMD</option>
+                <option value="3">M1</option>
+            
+        </select><br><br>
+                <label for="Processor_name	">PROCESSOR NAME :</label>
+                <select name="Processor_name" id="fifth" required="required">
+                <option value="1">core i3</option>
+                <option value="2"> core i5</option>
+                <option value="3">celeron dual</option>
+                <option value="4">Ryzen</option>
+                <option value="5">core i7</option>
+                <option value="6"> core i9</option>
+                <option value="7">M1</option>
+                <option value="8">Pentium</option>
+                <option value="9">Ryzen 3 </option>
+                <option value="10"> Ryzen 7</option>
+                <option value="11">Ryzen 9 </option>
+                </select>
+
+        </select><br><br>
+            <label for="processor_gnrtn	">PROCESSOR GENERATION :</label>
+            <select name="processor_gnrtn" id="fifth" required="required">
+            <option value="1">10th </option>
+            <option value="2">11th</option>
+            <option value="3">7th</option>
+            <option value="4">8th</option>
+            <option value="5">9th</option>
+            <option value="6">4th</option>
+            <option value="7">12th</option>
+            <option value="8">NOT AVILLABLE</option> 
+
+        </select><br><br>
+           <label for="ram_gb">RAM GB :</label>
+           <select name="ram_gb" id="fifth" required="required">
+           <option value="1">4 GB </option>
+           <option value="2">8 GB </option>
+           <option value="3">16 GB</option>
+           <option value="4">32 GB</option>
+        </select><br><br>
+           <label for="ram_type	">RAM TYPE :</label>
+           <select name="ram_type" id="fifth" required="required">
+           <option value="1">DDR4 </option>
+           <option value="2">LPDDR4 </option>
+           <option value="3">LPDDR4X</option>
+           <option value="4">DDR5</option>
+           <option value="5">DDR3</option>
+           <option value="6">LPDDR3</option>
+
+        </select><br><br>
+           <label for="ssd">SSD :</label>
+           <select name="ssd" id="fifth" required="required">
+           <option value="1">0 GB </option>
+           <option value="2">512 GB</option>
+           <option value="3">256 GB</option>
+           <option value="4">128 GB</option>
+           <option value="5">1024 GB</option>
+           <option value="6">2048 GB</option>
+           <option value="7">3072 GB</option>
+
+        </select><br><br>
+           <label for="os">OS :</label>
+           <select name="os" id="fifth" required="required">
+           <option value="1">Mac </option>
+           <option value="2">DOS</option>
+           <option value="3">Windows</option>
+           
+        </select><br><br>
+           <label for="os_bit">OS_BIT :</label>
+           <select name="os_bit" id="fifth" required="required">
+           <option value="1">64-bit </option>
+           <option value="2">32-bit</option>
+
+        </select><br><br>
+           <label for="graphic_card_gb">GRAPHIC_CARD_GB :</label>
+           <select name="graphic_card_gb" id="fifth" required="required">
+           <option value="1">0 GB </option>
+           <option value="2">2 GB</option>
+           <option value="3">4 GB</option>
+           <option value="4">6 GB</option>
+           <option value="5">8 GB</option>
+
+        </select><br><br>
+           <label for="weight">WEIGHT :</label>
+           <select name="weight" id="fifth" required="required">
+           <option value="1">Casual</option>
+           <option value="3">Gaming</option> 
+           
+        </select><br><br>
+           <label for="warranty">WARRANTY :</label>
+           <select name="warranty" id="fifth" required="required">
+           <option value="1">NO Warranty </option>
+           <option value="2">1 year</option>
+           <option value="3">2 year</option>
+           <option value="4">3 year</option>
+
+        </select><br><br>
+           <label for="Touchscreen">TOUCHSCREEN :</label>
+           <select name="Touchscreen" id="fifth" required="required">
+           <option value="1">NO </option>
+           <option value="2">YES</option>
+
+        </select><br><br>
+           <label for="rating">RATING :</label>
+           <select name="rating" id="fifth" required="required">
+           <option value="1">2 stars </option>
+           <option value="2">3 stars</option>
+           <option value="3">1 stars</option>
+           <option value="4">4 stars</option>
+           <option value="5">5 stars</option>   
+           
+               
+            
+                
+                <label for="age">age:</label>
+                <input type="text" name = 'age' required>
+                
+                <br><br>
+                <label for="power">power:</label>
+                <input type="text" name = 'power' required>
+<br><br>
+
+
+                <label for="">kms_driven</label>
+                <input type="text" name ="kms_driven"required>
+                <br><br>
+                </select>
+                
+                <button type="submit">Predict Price</button>
+            </form>
+            <!-- <p class="disclaimer">**Disclaimer:** This is a basic website for demonstration purposes only. A real prediction model would require additional features and machine learning integration.</p>
+        </section> -->
+        <!-- <section class="results">
+            <h2>Predicted Price</h2>
+            <p id="predicted-price">**This is where the predicted price will be displayed.**</p>
+        </section> -->
+    </main>
+    <div class="Prediction">
+    <h2>Bike Price is : {{ prediction }}</h2>
+</div>
+    <footer>
+        <!-- <p>&copy;2024 Bike Price Prediction</p> -->
+    </footer>
+</body>
+</html>
